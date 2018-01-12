@@ -1,0 +1,22 @@
+{
+  "name": "kilowhat",
+  "version": "1.0.0",
+  "description": "An npm package which allows you to track your electricity meters.",
+  "main": "/lib/kilowhat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://www.github.com/artusvranken/kilowhat"
+  },
+  "keywords": [
+    "energy",
+    "consumption",
+    "kilowhat",
+    "kilowatt",
+    "kwh"
+  ],
+  "author": "Artus Vranken",
+  "license": "ISC"
+}
