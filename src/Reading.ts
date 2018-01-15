@@ -11,11 +11,11 @@ export class Reading
     * Initialise a new instance of a Reading.
     * @constructor
     * 
-    * @param {number} [id=-1] - The ID of the new Reading.
-    * @param {Date} [date=new Date()] - The date of the new Reading.
-    * @param {number} [value=0.0] - The value of the new Reading.
+    * @param {number} [id = -1] - The ID of the new Reading.
+    * @param {number} [value = 0] - The value of the new Reading.
+    * @param {Date} [date = new Date()] - The date of the new Reading.
     */
-    constructor(id : number = -1, date : Date = new Date(), value : number = 0.0)
+    constructor(id : number = -1, value : number = 0, date : Date = new Date())
     {
         this.id = id;
         this.date = date;

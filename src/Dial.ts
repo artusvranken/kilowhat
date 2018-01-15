@@ -4,6 +4,14 @@ export class Dial
 {
     public id: number;
     public readings : Array<Reading>;
+    public description : string;
+    
+    constructor(id : number = -1, description : string = "A new Dial.", readings : Array<Reading> = new Array<Reading>())
+    {
+        this.id = id;
+        this.description = description;
+        this.readings = readings;
+    }
     
     get value() : number
     {
@@ -14,7 +22,7 @@ export class Dial
             return this.latestReading.value;
         }
         
-        return 
+        return total;
     }
     
     get latestReading() : Reading

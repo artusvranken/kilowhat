@@ -4,8 +4,9 @@
   "description": "An npm package which allows you to track your electricity meters.",
   "main": "/lib/kilowhat.js",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run test && npm run compile",
+    "compile": "tsc",
+    "test": "./node_modules/mocha/bin/mocha -r ts-node/register test/*.ts"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
     "kwh"
   ],
   "author": "Artus Vranken",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^4.1.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  }
 }
