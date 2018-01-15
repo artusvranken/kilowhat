@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "ES5"
+        "target": "ES5",
         "outDir": "./lib"
     },
     "files": [
@@ -11,6 +11,7 @@
         "SingleMeter.ts",
         "DualMeter.ts",
         "Reading.ts",
-        "MeterEvent.ts"
+        "MeterEvent.ts",
+        "Dial.ts"
     ]
 }

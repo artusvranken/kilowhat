@@ -4,6 +4,7 @@
   "description": "An npm package which allows you to track your electricity meters.",
   "main": "/lib/kilowhat.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

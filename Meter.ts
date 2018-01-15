@@ -1,11 +1,12 @@
 import { MeterType } from './MeterType';
+import { Dial } from './Dial';
+import { Reading } from './Reading';
 
 export interface Meter
 {
-    public const meterType : MeterType;
+    readonly meterType : MeterType;
 
-    public id : number;
-    
-    
-    
+    id : number;
+    dials : Array<Dial>;
+    description: string;
 }
