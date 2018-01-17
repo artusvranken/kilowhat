@@ -167,7 +167,7 @@ export class MeterRepositoryStub implements IMeterRepository
         return this.addExistingReading(meterId, dialId, newReading);
     }
     
-    addExistingReading(meterId : number, dialId : number, newReading : Reading) : Reading
+    addReading(meterId : number, dialId : number, newReading : Reading) : Reading
     {
         if (newReading.id < 0) newReading.id = this.newId();
         this.getReadings(meterId, dialId).push(newReading);
