@@ -10,22 +10,22 @@ export interface IMeterRepository
 {
     newId() : number;
     
-    getMeters() : Array<Meter>;
+    getMeters() : Map<number, Meter>;
     getMeter(meterId : number) : Meter;
-    addMeter(description : string) : Meter;
+    addMeter(newMeter : Meter) : Meter;
     removeMeter(meterId : number) : number;
     
-    getMeterEvents(meterId : number) : Array<MeterEvent>;
+    getMeterEvents(meterId : number) : Map<number, MeterEvent>;
     getMeterEvent(meterId : number, meterEventId : number) : MeterEvent;
     addMeterEvent(meterId : number, newMeterEvent : MeterEvent) : MeterEvent;
     removeMeterEvent(meterId : number, meterEventId : number) : number;
     
-    getDials(meterId : number) : Array<Dial>;
+    getDials(meterId : number) : Map<number, Dial>;
     getDial(meterId : number, dialId : number) : Dial;
     addDial(meterId : number, newDial : Dial) : Dial;
     removeDial(meterId : number, dialId : number) : number;
     
-    getReadings(meterId : number, dialId : number) : Array<Reading>;
+    getReadings(meterId : number, dialId : number) : Map<number, Reading>;
     getReading(meterId : number, dialId : number, readingId : number) : Reading;
     addReading(meterId : number, dialId: number, newReading : Reading) : Reading;
     removeReading(meterId : number, dialId : number, readingId : number) : number;

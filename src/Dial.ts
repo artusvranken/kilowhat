@@ -3,10 +3,10 @@ import { Reading } from './Reading';
 export class Dial
 {
     public id: number;
-    public readings : Array<Reading>;
+    public readings : Map<number, Reading>;
     public description : string;
     
-    constructor(id : number = -1, description : string = "A new Dial.", readings : Array<Reading> = new Array<Reading>())
+    constructor(id : number = -1, description : string = "A new Dial.", readings : Map<number, Reading> = new Map<number, Reading>())
     {
         this.id = id;
         this.description = description;
@@ -27,6 +27,6 @@ export class Dial
     
     get latestReading() : Reading
     {
-        return this.readings[this.readings.length - 1];
+        return this.readings.values()[this.readings.size - 1];
     }
 }

@@ -4,11 +4,11 @@ import { MeterEvent } from './MeterEvent';
 export class Meter
 {
     id : number;
-    dials : Array<Dial>;
-    meterEvents : Array<MeterEvent>;
+    dials : Map<number, Dial>;
+    meterEvents : Map<number, MeterEvent>;
     description: string;
     
-    constructor(meterId : number = -1, description : string = "A new meter.", dials : Array<Dial> = new Array<Dial>(), meterEvents : Array<MeterEvent> = new Array<MeterEvent>())
+    constructor(meterId : number = -1, description : string = "A new meter.", dials : Map<number, Dial> = new Map<number, Dial>(), meterEvents : Map<number, MeterEvent> = new Map<number, MeterEvent>())
     {
         this.id = meterId;
         this.description = description;
