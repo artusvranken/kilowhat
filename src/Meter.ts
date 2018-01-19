@@ -15,4 +15,12 @@ export class Meter
         this.dials = dials;
         this.meterEvents = meterEvents;
     }
+
+    sortedMeterEvents() : Array<MeterEvent>
+    {
+        let meterEventArray = Array.from(this.meterEvents.values());
+        meterEventArray.sort(MeterEvent.compare);
+        
+        return meterEventArray;
+    }
 }

@@ -21,4 +21,9 @@ export class MeterEvent
         this.description = description;
         this.date = date;
     }
+    
+    static compare(firstMeterEvent : MeterEvent, secondMeterEvent : MeterEvent) : number
+    {
+        return secondMeterEvent.date.getTime() - firstMeterEvent.date.getTime();
+    }
 }
