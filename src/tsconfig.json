@@ -2,16 +2,15 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "ES6",
-        "outDir": "./lib"
+        "outDir": "../lib"
     },
     "files": [
         "KiloWhat.ts",
+        "IMeterRepository.ts",
+        "MeterRepositoryStub.ts",
         "Meter.ts",
-        "MeterType.ts",
-        "SingleMeter.ts",
-        "DualMeter.ts",
-        "Reading.ts",
         "MeterEvent.ts",
-        "Dial.ts"
+        "Dial.ts",
+        "Reading.ts"
     ]
 }

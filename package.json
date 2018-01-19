@@ -5,7 +5,7 @@
   "main": "/lib/kilowhat.js",
   "scripts": {
     "build": "npm run test && npm run compile",
-    "compile": "tsc",
+    "compile": "cd src/ && tsc",
     "test": "mocha -r ts-node/register test/*.ts"
   },
   "repository": {
