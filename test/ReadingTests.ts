@@ -4,7 +4,7 @@ import * as assert from 'assert';
 describe('Reading', () => {
     
     describe('constructor', () => {
-      it('should initialise values correctly if no values are supplied.', () => {
+      it('should initialise defulat values if no values are supplied.', () => {
           let newReading = new Reading();
           
           assert.equal(newReading.id, -1);
