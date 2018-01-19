@@ -7,7 +7,7 @@ import { Reading } from './Reading';
 export class MeterRepositoryStub implements IMeterRepository
 {
     private idCounter = 0;
-    private meters : Map<number, Meter>;
+    private meters : Map<number, Meter> = new Map<number, Meter>();
     
     newId() : number
     {
@@ -31,12 +31,6 @@ export class MeterRepositoryStub implements IMeterRepository
         if (newMeter.id < 0) newMeter.id = this.newId();
         this.getMeters().set(newMeter.id, newMeter);
         return newMeter;
-    }
-    
-    updateMeter(meterId : number, description : string) : Meter
-    {
-        this.getMeter(meterId).description = description;
-        return this.getMeter(meterId);
     }
     
     removeMeter(meterId : number) : number
