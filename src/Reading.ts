@@ -21,4 +21,9 @@ export class Reading
         this.date = date;
         this.value = value;
     }
+    
+    static compare(firstReading : Reading, secondReading : Reading) : number
+    {
+        return secondReading.date.getTime() - firstReading.date.getTime();
+    }
 }

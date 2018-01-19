@@ -22,6 +22,23 @@ describe('Reading', () => {
           assert.equal(newReading.value, value);
           assert.equal(newReading.date.toISOString(), newDateString);
       });
-     
+    });
+    
+    describe('Compare method', () => {
+        it('Should return a negative number when the first Reading has a date later than the date of the second Reading.', () => {
+            let earlierReading = new Reading(0, 0, new Date("2018-01-19T11:00:00.000Z"));
+            let laterReading = new Reading(0, 0, new Date("2019-01-19T12:00:00.000Z"));
+            
+            let comparedValue = Reading.compare(laterReading, earlierReading);
+            assert.equal(comparedValue < 0, true);
+        });
+        
+        it("should return a positive number when the first Reading has a date earlier than the date of the second Reading.", () => {
+            let earlierReading = new Reading(0, 0, new Date("2018-01-19T11:00:00.000Z"));
+            let laterReading = new Reading(0, 0, new Date("2019-01-19T12:00:00.000Z"));
+            
+            let comparedValue = Reading.compare(earlierReading, laterReading);
+            assert.equal(comparedValue > 0, true);
+        });
     });
 });

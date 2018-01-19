@@ -13,20 +13,21 @@ export class Dial
         this.readings = readings;
     }
     
-    get value() : number
+    value() : number
     {
-        let total = 0;
-        
-        for (let reading of this.readings)
-        {
-            return this.latestReading.value;
-        }
-        
-        return total;
+        if (typeof this.latestReading() == 'undefined') return 0;
+        return this.latestReading().value;
     }
     
-    get latestReading() : Reading
+    latestReading() : Reading
     {
-        return this.readings.values()[this.readings.size - 1];
+        return this.sortedReadings()[0];
+    }
+
+    sortedReadings() : Array<Reading>
+    {
+        let sortedArray = Array.from(this.readings.values());
+        sortedArray.sort(Reading.compare);
+        return sortedArray;
     }
 }
