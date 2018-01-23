@@ -26,5 +26,8 @@
     "mocha": "^4.1.0",
     "ts-node": "^4.1.0",
     "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "typescript.events": "^7.9.0"
   }
 }
