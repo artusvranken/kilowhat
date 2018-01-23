@@ -55,21 +55,24 @@ export class Dial extends EventEmitter
         this.emitEvent(new EventArgs("update", "description", newDescription));
     }
     
-    value() : number
+    get value() : number
     {
-        if (typeof this.latestReading() == 'undefined') return 0;
-        return this.latestReading().value;
+        if (typeof this.latestReading == 'undefined') return 0;
+        this.emitEvent(new EventArgs("read", "value", this.latestReading.value));
+        return this.latestReading.value;
     }
     
-    latestReading() : Reading
+    get latestReading() : Reading
     {
-        return this.sortedReadings()[0];
+        this.emitEvent(new EventArgs("read", "latestReading", this.sortedReadings));
+        return this.sortedReadings[0];
     }
 
-    sortedReadings() : Array<Reading>
+    get sortedReadings() : Array<Reading>
     {
         let sortedArray = Array.from(this.readings.values());
         sortedArray.sort(Reading.compare);
+        this.emitEvent(new EventArgs("read", "sortedReadings", sortedArray));
         return sortedArray;
     }
 }

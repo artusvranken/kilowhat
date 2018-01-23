@@ -41,7 +41,7 @@ describe('Meter', () => {
             newMeter.meterEvents.set(oldMeterEvent.id, oldMeterEvent);
             newMeter.meterEvents.set(newestMeterEvent.id, newestMeterEvent);
             
-            let sortedArray = newMeter.sortedMeterEvents();
+            let sortedArray = newMeter.sortedMeterEvents;
             
             assert.equal(sortedArray[0], newestMeterEvent);
             assert.equal(sortedArray[1], newMeterEvent);

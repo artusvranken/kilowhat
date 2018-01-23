@@ -69,11 +69,12 @@ export class Meter extends EventEmitter
         this.emitEvent(new EventArgs("update", "meterEvents", newMeterEvents));
     }
 
-    sortedMeterEvents() : Array<MeterEvent>
+    get sortedMeterEvents() : Array<MeterEvent>
     {
         let meterEventArray = Array.from(this.meterEvents.values());
         meterEventArray.sort(MeterEvent.compare);
         
+        this.emitEvent(new EventArgs("read", "sortedMeterEvents", meterEventArray));
         return meterEventArray;
     }
 }

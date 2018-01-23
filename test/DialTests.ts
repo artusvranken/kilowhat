@@ -49,7 +49,7 @@ describe('Dial', () => {
             dial.readings.set(newestReading.id, newestReading);
             dial.readings.set(oldestReading.id, oldestReading);
             
-            let sortedReadings = dial.sortedReadings();
+            let sortedReadings = dial.sortedReadings;
             
             assert.equal(sortedReadings[0], newestReading);
             assert.equal(sortedReadings[1], newReading);
@@ -61,7 +61,7 @@ describe('Dial', () => {
     describe('latestReading', () => {
         it('should return undefined when no readings are present.', () => {
             let dial = new Dial();
-            let latestReading = dial.latestReading();
+            let latestReading = dial.latestReading;
             
             assert.equal(typeof latestReading, 'undefined');
         });
@@ -78,14 +78,14 @@ describe('Dial', () => {
             dial.readings.set(newestReading.id, newestReading);
             dial.readings.set(oldestReading.id, oldestReading);
             
-            assert.equal(dial.latestReading(), newestReading);
+            assert.equal(dial.latestReading, newestReading);
         });
     }); 
     
     describe('value', () => {
         it('should return 0 when no readings are present.', () => {
             let dial = new Dial();
-            assert.equal(dial.value(), 0);
+            assert.equal(dial.value, 0);
         });
         
         it('should return the value of the latest reading.', () => {
@@ -100,7 +100,7 @@ describe('Dial', () => {
             dial.readings.set(newestReading.id, newestReading);
             dial.readings.set(oldestReading.id, oldestReading);
             
-            assert.equal(dial.value(), 4);
+            assert.equal(dial.value, 4);
         })
     });
     
