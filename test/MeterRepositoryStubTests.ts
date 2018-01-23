@@ -1,5 +1,6 @@
 import { MeterRepositoryStub } from '../src/MeterRepositoryStub';
 import { Meter } from '../src/Meter';
+import { MeterEvent } from '../src/MeterEvent';
 import * as assert from 'assert';
 
 describe('MeterRepositoryStub', () => {
@@ -102,6 +103,29 @@ describe('MeterRepositoryStub', () => {
             newStub.removeMeter(1000);
             
             assert.equal(newStub.getMeters().size, 1);
+        });
+    });
+    
+    describe('addMeterEvent', () => {
+        it('should add a new MeterEvent and return it.', () => {
+            let newStub = new MeterRepositoryStub();
+            let newMeter = newStub.addMeter(new Meter());
+            let newMeterEvent = new MeterEvent();
+            let returnedMeterEvent = newStub.addMeterEvent(newMeter.id, newMeterEvent);
+            
+            assert.equal(newMeterEvent, returnedMeterEvent);
+        });
+    });
+    
+    describe('removeMeterEvent', () => {
+        it('should remove a MeterEvent if it exists.', () => {
+            let newStub = new MeterRepositoryStub();
+            let newMeter = newStub.addMeter(new Meter());
+            let newMeterEvent = newStub.addMeterEvent(newMeter.id, new MeterEvent());
+            
+            assert.equal(newStub.getMeterEvents(newMeter.id).size, 1);
+           
+            assert.equal(newStub.removeMeterEvent(newMeter.id, newMeterEvent.id), 0);
         });
     });
     
