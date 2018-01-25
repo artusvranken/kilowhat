@@ -27,6 +27,12 @@ export class Reading extends EventEmitter
         this.value = value;
     }
     
+    /**
+     * Get or set the ID of the Reading.
+     *
+     * @param {number} [newId] - The new ID for the Reading.
+     * @returns {number} The current ID of the Reading.
+     */
     get id() : number
     {
         this.emitEvent(new EventArgs("read", "id", this._id));
@@ -39,6 +45,12 @@ export class Reading extends EventEmitter
         this.emitEvent(new EventArgs("update", "id", newId));
     }
     
+    /**
+     * Get or set the date of this Reading.
+     *
+     * @param {Date} [newDate] - The new date of this Reading.
+     * @returns {Date} The current date of this Reading.
+     */
     get date() : Date
     {
         this.emitEvent(new EventArgs("read", "date", this._date));
@@ -51,6 +63,12 @@ export class Reading extends EventEmitter
         this.emitEvent(new EventArgs("update", "date", newDate));
     }
     
+    /**
+     * Get or set the value of this Reading.
+     *
+     * @param {number} [newValue] - The new value for this Reading.
+     * @returns {number} The current value of this Reading.
+     */
     get value() : number
     {
         this.emitEvent(new EventArgs("read", "value", this._value));
@@ -63,6 +81,14 @@ export class Reading extends EventEmitter
         this.emitEvent(new EventArgs("update", "value", newValue));
     }
     
+    /**
+     * Compare two Readings to sort them from most recent to least recent. 
+     *
+     * @param {Reading} [firstReading] - The first Reading that should be compared to the second Reading.
+     * @param {Reading} [secondReading] - The second Reading that should be compared to the first Reading.
+     *
+     * @returns {number} A value indiciating how these two Readings should be sorted relative to eachother.
+     */
     static compare(firstReading : Reading, secondReading : Reading) : number
     {
         return secondReading.date.getTime() - firstReading.date.getTime();

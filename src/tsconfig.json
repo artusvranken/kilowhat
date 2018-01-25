@@ -2,7 +2,8 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "ES6",
-        "outDir": "../dist"
+        "outDir": "../dist",
+        "declaration" : true
     },
     "files": [
         "KiloWhat.ts",

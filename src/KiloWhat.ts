@@ -24,6 +24,12 @@ export class KiloWhat
         this.meterRepository = meterRepository;
     }
     
+    /**
+     * Create and add a new Meter instance.
+     *
+     * @param {number} [dialAmount = 1] - The amount of Dials that should be maintained by this Meter.
+     * @returns {Meter} The new Meter that was created and added to our MeterRepository.
+     */
     addNewMeter(dialAmount : number = 1) : Meter
     {
         let newMeter = this.meterRepository.addMeter(new Meter());
@@ -37,11 +43,21 @@ export class KiloWhat
         return newMeter;
     }
 
+    /**
+     * Add a new single Meter, which is a Meter that maintains only 1 Dial.
+     *
+     * @returns {Meter} The new Meter that was created and added to our MeterRepository.
+     */
     addNewSingleMeter() : Meter
     {
         return this.addNewMeter(1);
     }
     
+    /**
+     * Add a new dual Meter, which is a Meter that maintains 2 Dials.
+     *
+     * @returns {Meter} The new Meter that was created and added to our MeterRepository.
+     */
     addNewDualMeter() : Meter
     {
         return this.addNewMeter(2);
