@@ -19,9 +19,10 @@ describe('Meter', () => {
             let dials = new Map<number, Dial>();
             let meterEvents = new Map<number, Dial>();
             
-            let newMeter = new Meter(0, "My new meter.", dials, meterEvents);
+            let newMeter = new Meter(0, "0001000", "My new meter.", dials, meterEvents);
             
             assert.equal(newMeter.id, 0);
+            assert.equal(newMeter.number, "0001000");
             assert.equal(newMeter.description, "My new meter.");
             assert.equal(newMeter.dials, dials);
             assert.equal(newMeter.meterEvents, meterEvents);

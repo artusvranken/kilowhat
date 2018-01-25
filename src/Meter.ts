@@ -7,15 +7,17 @@ import { EventEmitter } from './EventEmitter';
 export class Meter extends EventEmitter
 {
     private _id : number;
+    private _number : number;
     private _dials : Map<number, Dial>;
     private _meterEvents : Map<number, MeterEvent>;
     private _description: string;
     
-    constructor(meterId : number = -1, description : string = "A new meter.", dials : Map<number, Dial> = new Map<number, Dial>(), meterEvents : Map<number, MeterEvent> = new Map<number, MeterEvent>())
+    constructor(meterId : number = -1, number : string = "000", description : string = "A new meter.", dials : Map<number, Dial> = new Map<number, Dial>(), meterEvents : Map<number, MeterEvent> = new Map<number, MeterEvent>())
     {
         super();
         
         this.id = meterId;
+        this.number = number;
         this.description = description;
         this.dials = dials;
         this.meterEvents = meterEvents;
@@ -31,6 +33,18 @@ export class Meter extends EventEmitter
     {
         this._id = newId;
         this.emitEvent(new EventArgs("update", "id", newId));
+    }
+
+    get number() : string
+    {
+        this.emitEvent(new EventArgs("read", "number", this._number));
+        return this._number;
+    }
+    
+    set number(newNumber : string)
+    {
+        this._number = newNumber;
+        this.emitEvent(new EventArgs("update", "number", newNumber));
     }
 
     get description() : string
