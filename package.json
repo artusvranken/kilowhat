@@ -2,7 +2,7 @@
   "name": "kilowhat",
   "version": "1.0.0",
   "description": "An npm package which allows you to track your electricity meters.",
-  "main": "/lib/kilowhat.js",
+  "main": "./dist/kilowhat.js",
   "scripts": {
     "build": "npm run test && npm run compile",
     "compile": "cd src/ && tsc",
@@ -22,6 +22,8 @@
   "author": "Artus Vranken",
   "license": "ISC",
   "devDependencies": {
+    "@types/assert": "0.0.31",
+    "@types/mocha": "^2.2.47",
     "assert": "^1.4.1",
     "mocha": "^4.1.0",
     "ts-node": "^4.1.0",

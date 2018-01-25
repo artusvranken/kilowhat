@@ -17,7 +17,7 @@ describe('Meter', () => {
         
         it('should initialise values if they are supplied correctly.', () => {
             let dials = new Map<number, Dial>();
-            let meterEvents = new Map<number, Dial>();
+            let meterEvents = new Map<number, MeterEvent>();
             
             let newMeter = new Meter(0, "0001000", "My new meter.", dials, meterEvents);
             

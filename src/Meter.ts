@@ -7,7 +7,7 @@ import { EventEmitter } from './EventEmitter';
 export class Meter extends EventEmitter
 {
     private _id : number;
-    private _number : number;
+    private _number : string;
     private _dials : Map<number, Dial>;
     private _meterEvents : Map<number, MeterEvent>;
     private _description: string;
