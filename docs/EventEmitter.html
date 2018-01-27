@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EventEmitter - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Dial.html">Dial</a></li><li><a href="EventArgs.html">EventArgs</a></li><li><a href="EventEmitter.html">EventEmitter</a><ul class='methods'><li data-type='method'><a href="EventEmitter.html#emitEvent">emitEvent</a></li></ul></li><li><a href="KiloWhat.html">KiloWhat</a><ul class='methods'><li data-type='method'><a href="KiloWhat.html#addNewDualMeter">addNewDualMeter</a></li><li data-type='method'><a href="KiloWhat.html#addNewMeter">addNewMeter</a></li><li data-type='method'><a href="KiloWhat.html#addNewSingleMeter">addNewSingleMeter</a></li></ul></li><li><a href="Meter.html">Meter</a></li><li><a href="MeterEvent.html">MeterEvent</a><ul class='methods'><li data-type='method'><a href="MeterEvent.html#.compare">compare</a></li></ul></li><li><a href="MeterRepositoryStub.html">MeterRepositoryStub</a><ul class='methods'><li data-type='method'><a href="MeterRepositoryStub.html#addDial">addDial</a></li><li data-type='method'><a href="MeterRepositoryStub.html#addMeter">addMeter</a></li><li data-type='method'><a href="MeterRepositoryStub.html#addMeterEvent">addMeterEvent</a></li><li data-type='method'><a href="MeterRepositoryStub.html#addReading">addReading</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getDial">getDial</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getDials">getDials</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeter">getMeter</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeterEvent">getMeterEvent</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeterEvents">getMeterEvents</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeters">getMeters</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getReading">getReading</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getReadings">getReadings</a></li><li data-type='method'><a href="MeterRepositoryStub.html#newId">newId</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeDial">removeDial</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeMeter">removeMeter</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeMeterEvent">removeMeterEvent</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeReading">removeReading</a></li></ul></li><li><a href="Reading.html">Reading</a><ul class='methods'><li data-type='method'><a href="Reading.html#.compare">compare</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">EventEmitter</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        EventEmitter
+        </h2>
+        
+            <div class="class-description">An EventEmitter is a superclass that other classes can extend to support emitting events that take an EventArgs object as extra information.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="EventEmitter"><span class="type-signature"></span>new EventEmitter<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EventEmitter.js.html">EventEmitter.js</a>, <a href="EventEmitter.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Create a new instance of the EventEmitter.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="emitEvent"><span class="type-signature"></span>emitEvent<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="EventEmitter.js.html">EventEmitter.js</a>, <a href="EventEmitter.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Fire an event with supplied EventArgs information.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jan 27 2018 15:25:39 GMT+0100 (Romance Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MeterRepositoryStub.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Dial.html">Dial</a></li><li><a href="EventArgs.html">EventArgs</a></li><li><a href="EventEmitter.html">EventEmitter</a><ul class='methods'><li data-type='method'><a href="EventEmitter.html#emitEvent">emitEvent</a></li></ul></li><li><a href="KiloWhat.html">KiloWhat</a><ul class='methods'><li data-type='method'><a href="KiloWhat.html#addNewDualMeter">addNewDualMeter</a></li><li data-type='method'><a href="KiloWhat.html#addNewMeter">addNewMeter</a></li><li data-type='method'><a href="KiloWhat.html#addNewSingleMeter">addNewSingleMeter</a></li></ul></li><li><a href="Meter.html">Meter</a></li><li><a href="MeterEvent.html">MeterEvent</a><ul class='methods'><li data-type='method'><a href="MeterEvent.html#.compare">compare</a></li></ul></li><li><a href="MeterRepositoryStub.html">MeterRepositoryStub</a><ul class='methods'><li data-type='method'><a href="MeterRepositoryStub.html#addDial">addDial</a></li><li data-type='method'><a href="MeterRepositoryStub.html#addMeter">addMeter</a></li><li data-type='method'><a href="MeterRepositoryStub.html#addMeterEvent">addMeterEvent</a></li><li data-type='method'><a href="MeterRepositoryStub.html#addReading">addReading</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getDial">getDial</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getDials">getDials</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeter">getMeter</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeterEvent">getMeterEvent</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeterEvents">getMeterEvents</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getMeters">getMeters</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getReading">getReading</a></li><li data-type='method'><a href="MeterRepositoryStub.html#getReadings">getReadings</a></li><li data-type='method'><a href="MeterRepositoryStub.html#newId">newId</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeDial">removeDial</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeMeter">removeMeter</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeMeterEvent">removeMeterEvent</a></li><li data-type='method'><a href="MeterRepositoryStub.html#removeReading">removeReading</a></li></ul></li><li><a href="Reading.html">Reading</a><ul class='methods'><li data-type='method'><a href="Reading.html#.compare">compare</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">MeterRepositoryStub.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * A MeterRepositoryStub is a stub for maintaining a collection of Meters, Dials, Readings and MeterEvents. It implements the IMeterRepository.
+ */
+class MeterRepositoryStub {
+    /**
+     * Initialise a new instance of a MeterRepositoryStub.
+     * @constructor
+     *
+     * @param {number} [idCounter = 0] - The value that the MeterRepositoryStub should start at when assigning IDs.
+     * @param {Map&lt;number,Meter>} [meters] - The Meter collection that should be maintained by this MeterRepository.
+     */
+    constructor(idCounter = 0, meters) {
+        this.idCounter = idCounter;
+        if (typeof meters == 'undefined') {
+            meters = new Map();
+        }
+        this.meters = meters;
+    }
+    /**
+     * Get a new ID and increment the current idCounter value.
+     *
+     * @returns {number} A new ID.
+     */
+    newId() {
+        return this.idCounter++;
+    }
+    /**
+     * Get the collections of Meters maintained by this MeterRepositoryStub.
+     *
+     * @returns {Map&lt;number, Meter>} The current collection of Meters maintained by this MeterRepositoryStub.
+     */
+    getMeters() {
+        return this.meters;
+    }
+    /**
+     * Get a single Meter by its ID.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter that should be returned.
+     * @returns {Meter} The Meter with supplied ID.
+     */
+    getMeter(meterId) {
+        if (this.getMeters().has(meterId))
+            return this.getMeters().get(meterId);
+        throw new Error(`Meter with id ${meterId} not found.`);
+    }
+    /**
+     * Add or replace a Meter and assign it a new ID if its current ID is a negative value. If a Meter with the same ID already exists, it will be overwritten.
+     *
+     * @param {Meter} newMeter - The new Meter to be added.
+     * @returns {Meter} The new Meter, with possibly a newly assigned ID.
+     */
+    addMeter(newMeter) {
+        if (newMeter.id &lt; 0)
+            newMeter.id = this.newId();
+        this.getMeters().set(newMeter.id, newMeter);
+        return newMeter;
+    }
+    /**
+     * Delete a Meter from the collection of Meters maintained by this MeterRepositoryStub.
+     *
+     * @param {number} meterId - The ID of the Meter to be deleted.
+     * @returns {number} The amount of Meters still maintained by this MeterRepositoryStub after removal.
+     */
+    removeMeter(meterId) {
+        this.getMeters().delete(meterId);
+        return this.getMeters().size;
+    }
+    /**
+     * Get the collection of MeterEvents from a certain Meter with supplied ID, maintained by this MeterRepositoryStub.
+     *
+     * @returns {Map&lt;number, MeterEvent>} The collection of MeterEvents that belongs to the Meter with supplied ID.
+     */
+    getMeterEvents(meterId) {
+        return this.getMeter(meterId).meterEvents;
+    }
+    /**
+     * Get single MeterEvent by its ID and the ID of the Meter it belongs to.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     * @throws Will throw an Error when no MeterEvent with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter this MeterEvent belongs to.
+     * @param {number} meterEventId - The ID of the MeterEvent tha should be returned.
+     *
+     * @returs {MeterEvent} The MeterEvent with supplied ID.
+     */
+    getMeterEvent(meterId, meterEventId) {
+        if (this.getMeterEvents(meterId).has(meterEventId))
+            return this.getMeterEvents(meterId).get(meterEventId);
+        throw new Error(`MeterEvent with id ${meterEventId} not found.`);
+    }
+    /**
+     * Add or replace a MeterEvent. If the ID of the supplied MeterEvent is a negative number, a new ID will be assigned.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter this new/replaced MeterEvent belongs to.
+     * @param {MeterEvent} newMeterEvent - The new MeterEvent to be added.
+     *
+     * @returns {MeterEvent} The MeterEvent that was added to the MeterRepositoryStub.
+     */
+    addMeterEvent(meterId, newMeterEvent) {
+        if (newMeterEvent.id &lt; 0)
+            newMeterEvent.id = this.newId();
+        this.getMeterEvents(meterId).set(newMeterEvent.id, newMeterEvent);
+        return newMeterEvent;
+    }
+    /**
+     * Remove a MeterEvent by supplying its ID and the ID of the Meter is belongs to.
+     *
+     * @thows Will throw an Error when no Meter with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter this MeterEvent belongs to.
+     * @param {number} meterEventId - The ID of the MeterEvent to be removed.
+     *
+     * @returns {number} The amount of MeterEvents still maintained by this Meter after removal.
+     */
+    removeMeterEvent(meterId, meterEventId) {
+        this.getMeterEvents(meterId).delete(meterEventId);
+        return this.getMeterEvents(meterId).size;
+    }
+    /**
+     * Get the collection of all Dials that belong to the Meter with supplied ID.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter that we want the Dials to be returned from.
+     *
+     * @returns {Map&lt;number, Dial>} The collection of Dials that belong to the Meter with supplied ID.
+     */
+    getDials(meterId) {
+        return this.getMeter(meterId).dials;
+    }
+    /**
+     * Get a single Dial with supplied ID from a Meter with supplied ID.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     * @throws Will throw an Error when no Dial with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter this Dial belongs to.
+     * @param {number} dialId - The ID of the Dial we want to retrieve.
+     *
+     * @returns {Dial} The Dial we want to return.
+     */
+    getDial(meterId, dialId) {
+        if (this.getDials(meterId).has(dialId))
+            return this.getDials(meterId).get(dialId);
+        throw new Error(`Dial with id ${dialId} not found.`);
+    }
+    /**
+     * Add of replace a Dial that belongs to a Meter with supplied ID. If the ID of the Dial is a negative number, a new ID will be assigned to it.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter this Dial belongs to.
+     * @param {Dial} newDial - The Dial to be added/replaced.
+     *
+     * @returns {Dial} The newly added or replaced Dial.
+     */
+    addDial(meterId, newDial) {
+        if (newDial.id &lt; 0)
+            newDial.id = this.newId();
+        this.getDials(meterId).set(newDial.id, newDial);
+        return newDial;
+    }
+    /**
+     * Remove the Dial with supplied ID that belongs to a Meter with supplied ID.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter this Dial should be removed from.
+     * @param {number} dialId - The ID of the Dial that should be removed.
+     *
+     * @returns {number} The amount of Dials still maintained by this Meter after removal.
+     */
+    removeDial(meterId, dialId) {
+        this.getDials(meterId).delete(dialId);
+        return this.getDials(meterId).size;
+    }
+    /**
+     * Get the collection of Readings that belong to a Dial with supplied ID, that in turn belongs to a Meter with supplied ID.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     * @throws Will throw an Error when no Dial with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter that the Dial belongs to.
+     * @param {number} dialId - The ID of the Dial where the requested Readings belong  to.
+     *
+     * @returns {Map&lt;number, Reading>} The collection of Readings maintained by the Dial with supplied ID.
+     */
+    getReadings(meterId, dialId) {
+        return this.getDial(meterId, dialId).readings;
+    }
+    /**
+     * Get a single Reading by ID.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     * @throws Will throw an Error when no Dial with supplied ID is found.
+     * @throws Will throw an Error when no Reading with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter the Dial with supplied ID belongs to.
+     * @param {number} dialId - The ID of the Dial the requested Reading belongs to.
+     * @param {number} readingId - The ID of the Reading that needs to be returned.
+     *
+     * @returns {Reading} The requested Reading.
+     */
+    getReading(meterId, dialId, readingId) {
+        if (this.getReadings(meterId, dialId).has(readingId))
+            return this.getReadings(meterId, dialId).get(readingId);
+        throw new Error(`Reading with id ${readingId} not found.`);
+    }
+    /**
+     * Add or replace a Reading. If the ID of the Reading is a negative number, it will get a new ID assigned.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     * @throws Will throw an Error when no Dial with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter the Dial with supplied ID belongs to.
+     * @param {number} dialId - The ID of the Dial the new Readings should be added to.
+     * @param {Reading} newReading - The Reading to be added.
+     *
+     * @returns {Reading} The Reading that was added, replaced.
+     */
+    addReading(meterId, dialId, newReading) {
+        if (newReading.id &lt; 0)
+            newReading.id = this.newId();
+        this.getReadings(meterId, dialId).set(newReading.id, newReading);
+        return newReading;
+    }
+    /**
+     * Remove a Reading by its ID and the ID of the Dial it belongs to and the ID of the Meter this Dial belongs to.
+     *
+     * @throws Will throw an Error when no Meter with supplied ID is found.
+     * @throws Will throw an Error when no Dial with supplied ID is found.
+     *
+     * @param {number} meterId - The ID of the Meter the Dial belongs to.
+     * @param {number} dialId - The ID of the Dial the requested Reading belongs to.
+     * @param {number} readingId - The ID of the Reading that should be removed.
+     *
+     * @returns {number} The amount of Readings still maintained by the Dial with supplied ID after removal.
+     */
+    removeReading(meterId, dialId, readingId) {
+        this.getReadings(meterId, dialId).delete(readingId);
+        return this.getReadings(meterId, dialId).size;
+    }
+}
+exports.MeterRepositoryStub = MeterRepositoryStub;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jan 27 2018 15:25:39 GMT+0100 (Romance Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

@@ -5,9 +5,10 @@
   "main": "dist/kilowhat.js",
   "types": "dist/kilowhat.d.js",
   "scripts": {
-    "build": "npm run test && npm run compile",
+    "build": "npm run test && npm run compile && npm run document",
     "compile": "cd src/ && tsc",
-    "test": "mocha -r ts-node/register test/*.ts"
+    "test": "mocha -r ts-node/register test/*.ts",
+    "document": "jsdocdash.sh"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "@types/assert": "0.0.31",
     "@types/mocha": "^2.2.47",
     "assert": "^1.4.1",
+    "jsdoc": "^3.5.5",
     "mocha": "^4.1.0",
     "ts-node": "^4.1.0",
     "typescript": "^2.6.2"
