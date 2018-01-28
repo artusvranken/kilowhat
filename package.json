@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An npm package which allows you to track your electricity meters.",
   "main": "dist/KiloWhat.js",
-  "types": "dist/kilowhat.d.js",
+  "types": "dist/KiloWhat.d.js",
   "scripts": {
     "build": "npm run test && npm run compile && npm run document",
     "compile": "cd src/ && tsc",

@@ -1,9 +1,17 @@
 import { Meter } from './Meter';
 import { Dial } from './Dial';
 import { Reading } from './Reading';
+import { MeterEvent } from './MeterEvent';
 
 import { IMeterRepository } from './IMeterRepository';
 import { MeterRepositoryStub } from './MeterRepositoryStub';
+
+export * from './Meter';
+export * from './Dial';
+export * from './Reading';
+export * from './MeterEvent';
+export * from './IMeterRepository';
+export * from './MeterRepositoryStub';
 
 /**
  * KiloWhat is the facade class of this package, which you can use to keep track of Meters, Dials, Readings and MeterEvents.
