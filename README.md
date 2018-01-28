@@ -27,15 +27,31 @@ npm install -s kilowhat
 ### Creating a new KiloWhat instance
 
 ```javascript
-const { KiloWhat } = require('kilowhat');
+var kw = require(kilowhat');
 
-let newKiloWhat = new KiloWhat();
+let kilowhat = new kw.KiloWhat();
 ```
 
 ### Adding a Meter
 
 ```javascript
-let newMeter = new Meter();
+let newMeter = kilowhat.repo.addMeter(new kw.Meter());
+```
 
-newKiloWhat.addMeter(newMeter);
+### Adding a Dial to a Meter
+
+```javascript
+let newDial = kilowhat.repo.addDial(newMeter.id, new kw.Dial());
+```
+
+### Adding a Reading to a Dial
+
+```javascript
+let newReading = kilowhat.repo.addReading(newMeter.id, newDial.id, new kw.Reading());
+```
+
+### Adding a MeterEvent to a Meter
+
+```javascript
+let newMeterEvent = kilowhat.repo.addMeterEvent(newMeter.id, new kw.MeterEvent());
 ```

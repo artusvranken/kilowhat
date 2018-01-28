@@ -32,6 +32,11 @@ export class KiloWhat
         this.meterRepository = meterRepository;
     }
     
+    get repo() : IMeterRepository
+    {
+        return this.meterRepository;
+    }
+    
     /**
      * Create and add a new Meter instance.
      *
