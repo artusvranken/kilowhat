@@ -27,7 +27,7 @@ npm install -s kilowhat
 ### Creating a new KiloWhat instance
 
 ```javascript
-var kw = require(kilowhat');
+var kw = require('kilowhat');
 
 let kilowhat = new kw.KiloWhat();
 ```
